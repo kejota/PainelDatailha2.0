@@ -1,0 +1,51 @@
+.containerElement {
+  display: grid;
+  overflow-x: hidden;
+}
+
+#main {
+  display: flex;
+}
+
+#InformationElement p {
+  font-size: 1vw;
+  padding-left: 7vw;
+}
+
+section {
+  width: 100%;
+}
+
+#containerSearch {
+  display: flex;
+  align-items: center;
+}
+
+#editLink {
+  border-radius: 50%;
+  padding: 0.25vw;
+  margin-left: 1vw;
+  font-size: 1vw;
+  cursor: pointer;
+}
+
+#editLink:hover {
+  background-color: #98bbf3;
+}
+
+#offSeachIcon {
+  border-radius: 100%;
+  padding: 0.25vw;
+  margin-left: 0.6vw;
+  cursor: pointer;
+}
+
+#offSeachIcon:hover {
+  background-color: #ff0000;
+}
+
+#ResearchsListPainel{
+  height: 76vh;
+  overflow-y: auto;
+  padding: 0.4vw;
+}

@@ -1,0 +1,92 @@
+#elementGrid{
+    display: -webkit-box;
+}
+
+#addResearch img{
+    width: 1.5vw;
+    margin-right: 0.2vw;
+}
+
+#addResearch{
+    background-color: #476ab0;
+    margin-left: 66vw;
+    text-decoration: none;
+    font-size: 1vw;
+    color: #ffff;
+    padding: 0.3vw;
+    border-radius: 0.2vw;
+    cursor: pointer;
+}
+
+#addResearch:hover{
+    background-color: #4e89fd;
+}
+
+#addInput{
+    width: 20vw;
+    padding: 0.5vw;
+    font-size: 1.1vw;
+    margin: 0.5vw auto;
+    border: 1px solid #d3d3d3;
+}
+
+#inputElemetResearchs{
+    width: 25vw;
+   border: 0;
+}
+
+#tableResearchs {
+    padding: 0.5vw;
+    margin: 0 auto;
+    width: 65vw;
+    display: block;
+    overflow-y: auto;
+    padding: 0.2vw;
+}
+
+#buttonAddResearch{
+    width: 20vw;
+    background-color: #30579c;
+    border: none;
+    padding: 0.3vw;
+    color: #fff;
+    font-size: 1.2vw;
+}
+
+#buttonAddResearch:hover{
+    background-color: #5a85cf;
+}
+
+tr {
+    padding: 0.5vw;
+}
+
+th {
+    font-size: 1vw;
+    width: 30vw;
+    padding: 0.5vw;
+    font-weight: 400;
+}
+
+#actionTableHeader,
+#actionTable, #numbeIndex {
+    width: 3vw;
+}
+
+#actionTable img {
+    width: 2vw;
+}
+
+#actionTable:hover {
+    background-color: #fd0000;
+}
+
+tr:hover {
+    background-color: #c9d7f3;
+}
+
+#headerTable th {
+    color: #ffff;
+    background-color: #476ab0;
+    font-weight: 600;
+}

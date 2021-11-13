@@ -1,0 +1,455 @@
+body {
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+.central {
+  margin: 0 auto;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 2fr 5fr 2fr;
+  padding: 0 0.5vw 0 0.5vw;
+}
+
+#modelBase {
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  background-color: #476ab0;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.2rem;
+  font-size: 1rem;
+  margin-top: 7.5vh;
+  border-radius: 0.3rem;
+}
+
+#modelBase:hover {
+  background-color: #637eb3;
+}
+
+#modelBase>img {
+  width: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+#historicModal {
+  font-size: 1.1rem;
+  width: 25rem;
+  height: 14.75rem;
+  margin: 0 auto;
+  padding: 0.1rem;
+  overflow-y: auto;
+}
+
+#titleModal {
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  padding: 0.1rem;
+  background-color: #476ab0;
+  color: #fff;
+}
+
+#historicModal:hover {
+  color: #9599a0;
+}
+
+#formSearch {
+  margin: 1vw auto;
+  height: 90vh;
+  padding: 1vw;
+  overflow-y: auto;
+  white-space: nowrap;
+  padding-bottom: 6vw;
+}
+
+#firula {
+  height: 3vh;
+}
+
+#cytySelect {
+  font-size: 0.75rem;
+}
+
+#cytySelect option {
+  font-size: 0.75rem;
+}
+
+/*ComponentFormCreate*/
+.formBase {
+  margin: 1vw auto;
+  width: 50vw;
+  height: 20vh;
+  background-color: rgb(255 255 255);
+  border-radius: 2vw 0;
+  border-top: solid #476ab0;
+  box-shadow: 1px 1px 7px grey;
+}
+
+#reorder {
+  display: flex;
+  justify-content: center;
+}
+
+#formTitle,
+#formDescript {
+  display: flex;
+  justify-content: center;
+  padding: 1vw;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+input:focus {
+  box-shadow: 0px 3px 0px 0px #476ab0;
+  outline: 0;
+}
+
+#formTitle input,
+#formDescript input {
+  width: 48vw;
+  height: 6vh;
+  margin: 0;
+  padding: 0.5vw;
+  border: none;
+  font-size: 1.5vw;
+}
+
+#formDescript>input {
+  font-size: 1.2vw;
+}
+
+#formDescript>input:hover {
+  box-shadow: 0px 3px 0px 0px #476ab0;
+}
+
+li {
+  list-style: none;
+}
+
+/*Componentes de perguntas do formulário*/
+#sectionContent {
+  display: flex;
+  justify-content: center;
+  width: 42vw;
+  margin: 0 auto;
+}
+
+#sectionContent,
+#sectionContent>input {
+  background-color: #102c49;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 400;
+  padding-left: 1rem;
+  border-radius: 0.3rem 0;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+#sectionContent>input {
+  border: 0;
+  width: 40vw;
+}
+
+#sectionContent>input:focus {
+  box-shadow: none;
+}
+
+#sectionContent>input::placeholder {
+  color: #fff;
+}
+
+
+#closeSectionContent {
+  text-decoration: none;
+  width: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+
+}
+
+#buttonSectionOpenModal {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#query {
+  width: 42vw;
+  padding: 1vw;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 7px grey;
+  border-radius: 1vw;
+  border-left: solid #476ab0;
+  margin: 1vw auto;
+}
+
+#query:hover {
+  box-shadow: 0px 0px 9px 0px #303bbd;
+}
+
+#reorder_top:hover {
+  transition: 250ms;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #5c78a7;
+  border-radius: 5px;
+  margin-bottom: 0.7rem;
+}
+
+#reorder_down:hover {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: darkgray;
+  border-radius: 5px;
+}
+
+#optionSexo{
+  color: #4e4e4e;
+  font-size: 1vw;
+  margin-left: 0.5rem;
+}
+
+#messageTypeFilter{
+  margin-left: 0.6rem;
+  color: #4e4e4e;
+}
+
+
+#titleQuery {
+  border: none;
+  margin: 0;
+}
+
+#titleQuery,
+#type_response {
+  height: 3.75vh;
+  margin: 0 1vw 1vw 1vw;
+  font-size: 1vw;
+}
+
+#option {
+  display: grid;
+  grid-template-columns: 0.5fr 5fr 2fr;
+  align-items: center;
+  margin: 0 1vw 0vw 1vw;
+}
+
+#option a {
+  grid-column-end: none;
+  margin: 1vw;
+  font-size: 1.2vw;
+  color: red;
+  text-decoration: none;
+}
+
+#title_response {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+#type_response {
+  border: 1.5px solid #aaaa;
+}
+
+#option_select {
+  height: 5.5vh;
+  margin: 0;
+  padding: 0.5vw;
+  font-size: 1vw;
+  border: none;
+}
+
+#other {
+  color: #9599a0;
+  margin-left: 0.5rem;
+}
+
+#other:hover {
+  color: #5e5e5e;
+  cursor: text;
+}
+
+#optionOuther[disabled=disabled],
+button:disabled {
+  background-color: #fff;
+}
+
+#imageElement {
+  width: 2.3rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#footerQuestion {
+  padding-top: 0.5vw;
+}
+
+#optional {
+  height: 3.75vh;
+  margin: 0 1vw 1vw 1vw;
+  font-size: 1vw;
+  border: 1.5px solid #aaaa;
+}
+
+#deleteThisQuery {
+  cursor: pointer;
+}
+
+#delete {
+  color: red;
+}
+
+#delete:hover {
+  cursor: pointer;
+}
+
+#send>button {
+  border: none;
+  background-color: #fff;
+}
+
+#send>button:hover {
+  background-color: cornflowerblue;
+}
+
+#addOption {
+  height: 5.5vh;
+  font-size: 1vw;
+  display: grid;
+  grid-template-columns: 0.5fr 7fr;
+  align-items: center;
+  margin: 0 1vw 1vw 1vw;
+}
+
+#actionQuery {
+  width: 9vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  box-shadow: 1px 1px 7px grey;
+  justify-items: center;
+  margin: 1vw 0 2vw 6vw;
+}
+
+#actionQuery span {
+  width: 3vw;
+  display: flex;
+  justify-content: center;
+  border: 1.5px solid #aaaa;
+}
+
+#actionQuery span img {
+  width: 1.5vw;
+}
+
+#actionQuery #bin:hover {
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
+
+#actionQuery #add:hover {
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
+
+#actionQuery #send:hover {
+  background-color: cornflowerblue;
+}
+
+#option_text {
+  display: grid;
+}
+
+#text_response_line1 {
+  width: 30vw;
+  padding-top: 0.5vw;
+  padding-left: 1vw;
+  border-bottom: 0.1px solid #9599a0;
+  font-size: 0.8vw;
+}
+
+#text_response_line {
+  border-bottom: 0.1px solid #9599a0;
+  width: 26vw;
+}
+
+#ResearchsListDefined {
+  height: 50vh;
+  border-top: solid #476ab0;
+  box-shadow: 1px 1px 7px grey;
+  margin-top: 7vh;
+  margin-right: 0.5vw;
+  margin-left: 0.5vw;
+}
+
+#titleSelectResearchs {
+  background-color: cornflowerblue;
+
+}
+
+#titleSelectResearchs>p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 1.25vw;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+#listResearchsDefined {
+  height: 43vh;
+  padding: 0.5vw;
+  margin: 0.5vw;
+  overflow-y: auto;
+
+}
+
+#selectResearch {
+  margin-bottom: 0.2vw;
+}
+
+#scales {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+#selectResearch>label {
+  font-size: 1vw;
+  margin-left: 0.5vw;
+}
+
+
+label {
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+/*Para testes*/
+pre {
+  background: #f3f3f3;
+  padding: 1em;
+}
+
+#modal-message {
+  padding: 1vw;
+  display: grid;
+  /* grid-template-rows: 11fr 7fr 2fr; */
+  grid-row-gap: 2vw;
+  /* align-items: center; */
+  text-align: -webkit-center;
+}
+
+#modal-message img {
+  width: 5vw;
+}

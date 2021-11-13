@@ -1,0 +1,58 @@
+#menu_painel{
+    width: 18vw;
+    height: 100vh;
+    background-color: #e2e8ef;
+}
+
+#menuElements{
+    padding: 1vw;
+}
+
+#painel{
+    padding-top: 1rem;
+    font-size: 1vw;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#elementMenu img{
+    width: 2vw;
+    margin: 0 auto; 
+    cursor: pointer;
+}
+
+#elementMenu {
+    width: 2vw;
+    padding-top: 2vh;
+    cursor: pointer;
+}
+
+
+#element {
+    padding: 1vw 0 1vw 0;
+    border-radius: 0.3vw;
+    
+}
+
+#element a {
+    font-size: 1vw;
+    text-decoration: none;
+    color: #476AB0;
+    font-weight: 900;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#element img{
+    width: 2.5vw;
+    padding-right: 15px;
+    margin: 0 auto; 
+}
+
+#element:hover{
+    background-color: #ffffff;
+    padding: 1vw;
+}
+
+#element a:hover{
+    color: black;
+}

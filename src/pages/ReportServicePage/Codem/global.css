@@ -1,0 +1,69 @@
+#pageContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+#dateInput {
+    width: 14rem;
+    padding-left: 3rem;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    border: 1px #aaa solid;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-right: 0.3rem;
+
+}
+
+#dateFilter {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    border-bottom: 1px #e0e0e0 solid;
+    background-color: #4f8bc3;
+    color: white;
+    font-weight: 700;
+}
+
+#centralContainer {
+    width: 95vw;
+    margin: 0 auto;
+}
+
+#containerImgDocument{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#titleDocumentPhotoDeclaration {
+    display: flex;
+    justify-content: center;
+}
+
+#titleDocumentPhotoDeclaration p{
+    font-size: 1.5rem;
+    text-align: justify;
+    white-space: normal;
+}
+
+#contentDocument{
+    margin-right: 4rem;
+    margin-left: 4rem;
+    margin-bottom: 1rem;
+}
+
+#contentDocument img{
+    margin-left: 2rem;
+}
+
+#contentDocument p{
+    text-align: justify;
+    white-space: normal;
+    font-size: 0.70rem;
+}
+
+#contentDocument img{
+    width: 16rem;
+}

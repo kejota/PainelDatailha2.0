@@ -1,0 +1,63 @@
+#headerReport {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+#boxHeader {
+    background-color: #1a3a63;
+    height: 5.5rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+#leftbox {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    height: 6rem;
+    width: 30vw;
+}
+
+#containerBackground {
+    background-color: #4f8bc3;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+}
+
+#imagesHeader {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+#logoContainer {
+    background-color: #fff;
+    padding-right: 1rem;
+}
+
+#logoContainer img {
+    height: 66px;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+}
+
+#titleDoc h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    margin-bottom: 0;
+}
+
+#titleDoc p {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 2rem;
+}

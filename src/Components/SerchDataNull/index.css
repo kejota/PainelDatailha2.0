@@ -1,0 +1,12 @@
+#noData {
+    display: grid;
+    justify-content: center;
+    font-size: 2.5vw;
+    margin-top: 5vw;
+    color: #476ab0;
+}
+
+#noData img{
+    width: 15vw;
+    margin: 1vw auto;
+}

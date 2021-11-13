@@ -1,0 +1,160 @@
+body {
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+#formSearchEdit {
+    margin: 1vw auto;
+    height: 84vh;
+    padding: 1vw;
+    padding-top: 0;
+    margin-top: 0;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+#RemoveSelected img {
+    width: 1rem;
+}
+
+#cytySelect {
+    font-size: 0.75rem;
+}
+
+#cytySelect option {
+    font-size: 0.75rem;
+}
+
+
+#reorder {
+    display: flex;
+    justify-content: center;
+}
+
+#formTitle,
+#formDescript {
+    display: flex;
+    justify-content: center;
+    padding: 1vw;
+}
+
+
+#reorder_top:hover {
+    transition: 250ms;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #5c78a7;
+    border-radius: 5px;
+    margin-bottom: 0.7rem;
+}
+
+#reorder_down:hover {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+
+#sectionContent {
+    display: flex;
+    justify-content: center;
+    width: 42vw;
+    margin: 0 auto;
+}
+
+#optionSexo{
+    color: #4e4e4e;
+    font-size: 1vw;
+    margin-left: 0.5rem;
+  }
+  
+  #messageTypeFilter{
+    margin-left: 0.6rem;
+    color: #4e4e4e;
+  }
+
+#sectionContent,
+#sectionContent>input {
+    background-color: #102c49;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 1rem;
+    border-radius: 0.3rem 0;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+#sectionContent>input {
+    border: 0;
+    width: 40vw;
+}
+
+#sectionContent>input:focus {
+    box-shadow: none;
+}
+
+#sectionContent>input::placeholder {
+    color: #fff;
+}
+
+
+#closeSectionContent {
+    text-decoration: none;
+    width: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+
+}
+
+#buttonSectionOpenModal {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#confirmButtonSectionModal {
+    background-color: #102c49;
+    width: 5rem;
+    padding: 0.5rem;
+    color: #fff;
+    border-radius: 0.3rem;
+}
+
+#confirmButtonSectionModal:hover {
+    background-color: #1e456e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#RemoveSelected:hover {
+    width: 1.75rem;
+    background-color: #f5dcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+#ResearchsOptions {
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+}
+
+#information {
+    margin-left: 1.5vw;
+    font-size: 0.9vw;
+    margin-bottom: 0.5vw;
+}
+
+#container {
+    width: 95vw;
+    margin: 0.6vw auto;
+}
+
+#nameResearch {
+    font-size: 1vw;
+    margin-left: 0.5vw;
+}

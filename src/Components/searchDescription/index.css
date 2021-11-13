@@ -1,0 +1,88 @@
+#information p {
+  font-size: 1vw;
+  margin-top: 0.75vw;
+}
+#information {
+  display: grid;
+  grid-template-columns: 5fr 5fr 2fr;
+}
+
+#title {
+  font-size: 1vw;
+  padding-left: 7vw;
+  margin-top: 0.75vw;
+  color: cornflowerblue;
+}
+
+#description{
+  font-size: 1vw;
+  padding-left: 7vw;
+  margin-top: 0.75vw;
+  margin-bottom: 0.5vw;
+}
+
+#left #dateCriationForm {
+  padding-left: 7vw;
+  font-size: 1vw;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#dateCriationForm img {
+  width: 1vw;
+  margin-right: 0.1vw;
+  margin-bottom: 0;
+}
+
+#actionsGraph {
+  padding: 0.5vw 0 0.5vw 7.5vw;
+}
+
+#actionsGraph #linka {
+  font-size: 0.9vw;
+  padding: 0 0.3vw 0.2vw 0.3vw;
+  background-color: #476ab0;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 1vw;
+  border-radius: 0.2vw;
+  text-decoration: none;
+}
+
+#actionsGraph a > img {
+  width: 0.9vw;
+  margin-right: 0.6vw;
+}
+
+#actionsGraph a:hover {
+  background-color: #6980af;
+}
+
+#buttonSendShare{
+  background-color: #476ab0;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0.4rem;
+  font-weight: 700;
+  border: none;
+}
+
+#buttonSendShare:hover{
+  background-color: #6b88c0;
+  box-shadow: 1px 1px 7px #554aff;
+  border-color: #ffffff;
+}
+#requirement{
+  font-size: 0.9vw;
+  padding: 0 0.3vw 0.2vw 0.3vw;
+  background-color: #5c5c5c;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 1vw;
+  border-radius: 0.2vw;
+  text-decoration: none;
+
+}
+
+hr {
+  margin: 0.5vw 0 0.5vw 0;
+}

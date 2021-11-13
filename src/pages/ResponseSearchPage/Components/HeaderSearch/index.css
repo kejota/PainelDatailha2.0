@@ -1,0 +1,30 @@
+@media screen and (min-width: 200px) {
+    .titleSearch {
+        font-size: calc(18px + (8/1200) * 10 * 1vw);
+        display: flex;
+        justify-content: center;
+    }
+
+    #central{
+        padding-left: 0.1rem;
+        padding-right: 0.1rem;
+    }
+}
+
+#central{
+    white-space: normal;
+    display: block;
+}
+
+.headerSearch {
+    background-color: #102c49;
+    color: #fff;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-bottom: 1vh;
+}
+
+.adjusteText {
+    white-space: normal;
+    display: block;
+}

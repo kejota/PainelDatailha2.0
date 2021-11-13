@@ -1,0 +1,52 @@
+header {
+    width: 100vw;
+    height: 8vh;
+    background-color: #102c49;
+    box-shadow: 17px 4px 20px 0px #00000042;
+    display: grid;
+    grid-template-columns: 0.95fr 5fr 1fr;
+}
+
+#logo {
+    height: 8vh;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+}
+
+#logoImg {
+    width: 3rem;
+    margin: auto;
+}
+
+#titlePage {
+    display: flex;
+    align-items: center;
+}
+
+#acount p {
+    margin-top: 0.4vw;
+    font-size: 1.1vw;
+    padding: 3px;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 1vw;
+}
+
+#actionsHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#actionsHeader img {
+    padding: 1.5vw;
+    width: 4.5vw;
+    cursor: pointer;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 1.5vw;
+    color: #ffffff;
+}

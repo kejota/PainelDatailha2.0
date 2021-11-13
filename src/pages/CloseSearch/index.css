@@ -1,0 +1,29 @@
+#titlePage {
+    margin-top: 1vw;
+    margin-left: 1vw;
+}
+#closeSearch{
+    height: 75vh;
+    overflow-y: auto;
+}
+
+#containerSearch {
+    display: flex;
+    align-items: center;
+}
+
+#deleteIcon,
+#restoreIcon {
+    border-radius: 100%;
+    padding: 0.25vw;
+    margin-left: 0.6vw;
+    cursor: pointer;
+}
+
+#deleteIcon:hover {
+    background-color: red;
+}
+
+#restoreIcon:hover {
+    background-color: #1e88e5;
+}

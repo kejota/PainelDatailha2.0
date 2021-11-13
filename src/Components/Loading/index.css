@@ -1,0 +1,6 @@
+#loading img{
+    display: grid;
+    justify-content: center;
+    width: 25vw;
+    margin: 1vw auto;
+}

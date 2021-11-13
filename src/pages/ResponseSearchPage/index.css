@@ -1,0 +1,54 @@
+.responseContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    background-color: #f3f3f3;
+
+}
+
+#formResponse {
+    display: grid;
+    justify-content: center;
+}
+
+.textAdjuste {
+    color: #110b31;
+    text-align: justify;
+    white-space: normal;
+    display: block;
+}
+
+#sectionTitleContainer{
+    background-color: #102c49;
+    white-space: normal;
+    text-align: center;
+}
+
+#labeltext {
+    margin: 0;
+}
+
+#containerQuestion{
+    box-shadow:  -1px 2px 8px 0px #d0d0d0;
+}
+
+#titleQueryForm{
+    font-weight: 600;
+}
+
+#separator{
+
+}
+
+@media screen and (min-width: 760px) {
+    .dataInputForm {
+        width: 15rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerForm {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}

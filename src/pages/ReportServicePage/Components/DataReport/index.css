@@ -1,0 +1,15 @@
+#dataReport {
+    margin: 1rem 0;
+}
+
+#question,
+#response {
+    margin: 0;
+    text-align: justify;
+    white-space: normal;
+    display: block;
+}
+
+#question {
+    font-weight: 600;
+}

@@ -1,0 +1,14 @@
+#linePageTitle{
+    width: 100%;
+    background-color: #baccf0;
+    color: #000000;
+}
+
+#linePageTitle p{
+    font-size: 1vw;
+    padding: 0.5vw;
+    margin-left: 1vw;
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+    font-style: italic;
+}
