@@ -63,9 +63,10 @@ class Researchs extends Component {
     deleteSubmit = (id) => {
         axios.delete(`${process.env.REACT_APP_HOST}/excluirPesquisador/${id}`)
             .then(res => {
-                console.log("Ok")
+                if(res.status === 200){
+                    window.location.reload();
+                }
             })
-        window.location.reload();
     }
 
     insertName(e) {
