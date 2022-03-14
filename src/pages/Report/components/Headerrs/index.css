@@ -1,0 +1,31 @@
+
+.conteiner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.conteiner-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-report{
+    text-align: center;
+   
+    margin: 0;
+    padding: 0;
+}
+
+.imagem-report{
+    min-height: 200px;
+    max-height: 300px;
+    min-width: 300px;
+    object-fit: contain;
+}

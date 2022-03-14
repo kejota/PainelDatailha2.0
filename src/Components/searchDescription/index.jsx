@@ -6,21 +6,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import calendarIcon from '../../assets/event-24px.svg'
 import localizationElement from '../../assets/fmd_good-24px.svg'
 import clipIcon from '../../assets/attach_file.svg'
+import { AiFillTool } from "react-icons/ai";
 import "./index.css"
 
 function renderOptionsButton(id, linkId) {
-    if (id === "610b51b3b8610e6f50700e5c") {
+    if (id === "620d1eecb8c6276b71bd9a48") {
         return (
             <>
                 <a id="requirement" href={`/requerimento/${linkId}`} target="_blank" rel="noopener noreferrer"><img src={clipIcon} alt="icone Clip" />    Requerimento     </a>
-
-                <a id="requirement" href={`/declaracaoRequerimento/${linkId}`} target="_blank" rel="noopener noreferrer"><img src={clipIcon} alt="icone Clip" />    Declaração Requerimento     </a>
-                
-                <a id="requirement" href={`/autonomo/${linkId}`} target="_blank" rel="noopener noreferrer"><img src={clipIcon} alt="icone Clip" />    Autônomo     </a>
-
-                <a id="requirement" href={`/uniaoEstavel/${linkId}`} target="_blank" rel="noopener noreferrer"><img src={clipIcon} alt="icone Clip" />    União estável     </a>
-
-                <a id="requirement" href={`/posse/${linkId}`} target="_blank" rel="noopener noreferrer"><img src={clipIcon} alt="icone Clip" />    Declaração de Posse     </a>
             </>
         )
     } else if (id === "60c61edac815edde39aa71ab") {
@@ -109,7 +102,17 @@ function SearchDescription(props) {
                         <img src={props.icon} alt="elemento gráfico" />{props.descriptionIcon}
                     </Link>
 
-                    <Link id="linka" to={`/localizacao/${props.linkId}`}><img src={localizationElement} alt="elemento localização" />      Localização</Link>
+                    <Link id="linka" to={`/localizacao/${props.linkId}`}>
+                        <img src={localizationElement} alt="elemento localização" />
+                        Localização
+                    </Link>
+
+                    <Link id="linka" to={`/logica/${props.linkId}`}>
+                        
+                    <AiFillTool className="icon-tool" />
+                        Condições
+                    </Link>
+
 
                     {renderOptionsButton(props.id, props.linkId)}
 

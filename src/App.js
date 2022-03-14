@@ -13,13 +13,9 @@ import Localization from "./pages/Localization";
 import CloseSSearch from "./pages/CloseSearch"
 import Researchs from "./pages/Researchs"
 import Admin from "./pages/Perfil"
-import Codem from "./pages/ReportServicePage/Codem"
-import AutonomusDeclaration from "./pages/ReportServicePage/Codem/Autonomous"
-import UnionStableDeclaration from "./pages/ReportServicePage/Codem/UnionStable"
-import DeclarationRequirement from "./pages/ReportServicePage/Codem/DeclarationRequirement"
-import Posse from "./pages/ReportServicePage/Codem/PosseDeclaration"
-import Engineering from "./pages/ReportServicePage/Engineering"
+import Report from "./pages/Report"
 import ResponseSearchPage from "./pages/ResponseSearchPage";
+import Logic from "./pages/Logic";
 
 
 const PrivateRoute = ({roles, component: Component, ...rest}) =>{
@@ -57,13 +53,9 @@ function App() {
           <PrivateRoute path="/pesquisadores" component={Researchs} roles={['Master','Slave']}/>
           <PrivateRoute path="/admin" component={Admin} roles={['Master']}/>
 
-          <PrivateRoute path="/requerimento/:id" component={Codem} roles={['Master']}/>
-          <PrivateRoute path="/RelatorioEngenharia/:id" component={Engineering} roles={['Master']} />
-
-          <PrivateRoute path="/autonomo/:id" component={AutonomusDeclaration} roles={['Master']} />
-          <PrivateRoute path="/uniaoEstavel/:id" component={UnionStableDeclaration} roles={['Master']} />
-          <PrivateRoute path="/declaracaoRequerimento/:id" component={DeclarationRequirement} roles={['Master']} />
-          <PrivateRoute path="/posse/:id" component={Posse} roles={['Master']} />
+          <PrivateRoute path="/requerimento/:id" component={Report} roles={['Master']}/>
+          <PrivateRoute path="/logica/:id" component={Logic} roles={['Master']}/>
+         
           
           <Route path="/resposta/:id" component={ResponseSearchPage}/>
         </Switch>

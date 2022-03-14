@@ -1,8 +1,0 @@
-#containerReport{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-#containerPhoto{
-    border-left: #ababab 1px solid;
-}

@@ -39,16 +39,17 @@
 
 #actionsGraph #linka {
   font-size: 0.9vw;
-  padding: 0 0.3vw 0.2vw 0.3vw;
   background-color: #476ab0;
   font-weight: 600;
   color: #ffffff;
   margin: 1vw;
   border-radius: 0.2vw;
   text-decoration: none;
+  padding: 10px 15px;
+  
 }
 
-#actionsGraph a > img {
+#actionsGraph a > img, .icon-tool {
   width: 0.9vw;
   margin-right: 0.6vw;
 }

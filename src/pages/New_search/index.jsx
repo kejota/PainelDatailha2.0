@@ -644,9 +644,9 @@ class NewSearch extends Component {
               >
                 <option value="false" selected>
                   {" "}
-                  Não Condicional{" "}
+                  Obrigatória{" "}
                 </option>
-                <option value="true">Condicional</option>
+                <option value="true">Não obrigatória</option>
               </select>
             </span>
 
@@ -754,7 +754,7 @@ class NewSearch extends Component {
           id="optionOuther"
           type="text"
           name="option_select"
-          id="option_select"
+          //id="option_select"
           placeholder="Outros..."
           disabled
         />

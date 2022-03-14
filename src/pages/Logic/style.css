@@ -1,0 +1,12 @@
+.conteiner-logic{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    
+}
+
+.conteiner ul{
+    overflow-y: auto;
+    max-height: 100%;
+}
