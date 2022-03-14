@@ -21,6 +21,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import { GrClose } from "react-icons/gr";
 import { FaSave } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
 
 
 import './style.css'
@@ -159,9 +160,9 @@ const Logic = () => {
         console.log(Boolean(regras.questions[idQuetion].regras[0].visible))
     }
 
-    const Salvar = () => {
+    const Salvar = async () => {
         setCarregando(true)
-        axios
+        await axios
             .post(`${process.env.REACT_APP_HOST}/updateRegra`, regras).then((res) => {
                 setCarregando(false)
                 setAviso({
@@ -180,10 +181,16 @@ const Logic = () => {
             })
     }
 
+    const Home = async () =>{
+        await Salvar()
+        window.location.href = "/painel"
+    }
+
     return (
         <div className="conteiner-logic">
             <AppBar position="static">
                 <Toolbar>
+                    <AiFillHome onClick={() => {Home()}} size={25} style={{marginRight: 50, cursor: 'pointer'}}/>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Regras - {search.title}
                     </Typography>
