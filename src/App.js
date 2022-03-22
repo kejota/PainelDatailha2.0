@@ -16,6 +16,7 @@ import Admin from "./pages/Perfil"
 import Report from "./pages/Report"
 import ResponseSearchPage from "./pages/ResponseSearchPage";
 import Logic from "./pages/Logic";
+import SearchWhatsApp from "./pages/SearchWhatsApp";
 
 
 const PrivateRoute = ({roles, component: Component, ...rest}) =>{
@@ -55,6 +56,7 @@ function App() {
 
           <PrivateRoute path="/requerimento/:id" component={Report} roles={['Master']}/>
           <PrivateRoute path="/logica/:id" component={Logic} roles={['Master']}/>
+          <PrivateRoute path="/whatsapp" component={SearchWhatsApp} roles={['Master']}/>
          
           
           <Route path="/resposta/:id" component={ResponseSearchPage}/>

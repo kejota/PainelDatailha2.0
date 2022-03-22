@@ -34,10 +34,12 @@ const Logic = () => {
     const paramUrl = useParams();
     const [open, setOpen] = React.useState(false);
     const [carregando, setCarregando] = React.useState(true);
+  
     const [aviso, setAviso] = React.useState({
         type: 'success',
         msg: 'Salvo com sucesso!'
     });
+
     const [search, setSearch] = useState([]);
     const [regras, setRegras] = useState();
     useEffect(() => {
@@ -45,13 +47,12 @@ const Logic = () => {
         axios
             .get(`${process.env.REACT_APP_HOST}/pesquisa/${paramUrl.id}`)
             .then((res) => {
-
                 axios
                     .get(`${process.env.REACT_APP_HOST}/getRegra/${paramUrl.id}`)
                     .then((resposta) => {
                         console.log("GET REGRA", resposta)
                         res.data[0].questions.push({
-                            query: {
+                                query: {
                                 idQuery: res.data[0].questions.length,
                                 title: 'Todas',
                                 response: { alternative: [] }

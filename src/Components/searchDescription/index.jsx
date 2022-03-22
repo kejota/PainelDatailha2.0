@@ -107,12 +107,7 @@ function SearchDescription(props) {
                         Localização
                     </Link>
 
-                    <Link id="linka" to={`/logica/${props.linkId}`}>
-                        
-                    <AiFillTool className="icon-tool" />
-                        Condições
-                    </Link>
-
+                   
 
                     {renderOptionsButton(props.id, props.linkId)}
 

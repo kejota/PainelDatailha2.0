@@ -34,10 +34,10 @@
     
 }
 
-#element a {
+#menuElements a {
     font-size: 1vw;
     text-decoration: none;
-    color: #476AB0;
+    color: #102C49;/* 476AB0 */
     font-weight: 900;
     font-family: 'Source Sans Pro', sans-serif;
 }
