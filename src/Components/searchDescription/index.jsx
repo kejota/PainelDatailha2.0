@@ -8,6 +8,13 @@ import localizationElement from '../../assets/fmd_good-24px.svg'
 import clipIcon from '../../assets/attach_file.svg'
 import { AiFillTool } from "react-icons/ai";
 import "./index.css"
+import Button from '@mui/material/Button';
+import { Stack } from '@mui/material';
+import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import { IoAnalyticsSharp } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { MdRule } from "react-icons/md";
+
 
 function renderOptionsButton(id, linkId) {
     if (id === "620d1eecb8c6276b71bd9a48") {
@@ -82,39 +89,42 @@ function renderCopyButton(id, url) {
 }
 
 function SearchDescription(props) {
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: '#476AB0',
+            }
+        },
+    });
     return (
-        <span>
-            <div>
-                <div id="information">
-                    <div id="left">
-                        <h1 id="title">{props.title}</h1>
-                        <p id="description"><b>Descrição</b>: {props.description}</p>
-                        <p id="dateCriationForm"><img src={calendarIcon} alt="icone Calendário" />Criado em: <b>{props.date}</b></p>
+        <ThemeProvider theme={theme}>
+            <span>
+                <div>
+                    <div id="information">
+                        <div id="left">
+                            <h1 id="title">{props.title}</h1>
+                            <p id="description"><b>Descrição</b>: {props.description}</p>
+                            <p id="dateCriationForm"><img src={calendarIcon} alt="icone Calendário" />Criado em: <b>{props.date}</b></p>
+                        </div>
+                        <div></div>
+                        <div>
+                            <p>Total de Registros: <b>{props.totalRegisters}</b></p>
+                            {renderCopyButton(props.id, props.urlSend)}
+                        </div>
                     </div>
-                    <div></div>
-                    <div>
-                        <p>Total de Registros: <b>{props.totalRegisters}</b></p>
-                        {renderCopyButton(props.id, props.urlSend)}
+                    <div id="actionsGraph">
+                        <Stack spacing={2} direction={'row'}>
+                            <Button size="small" variant="contained" onClick={() => window.location.href = `/grafico/${props.linkId}`}>{<IoAnalyticsSharp size={15} style={{marginRight: 10}}/>}Dados Analíticos</Button>
+                            <Button size="small" variant="contained" onClick={() => window.location.href = `/localizacao/${props.linkId}`}>{<FaMapMarkerAlt style={{marginRight: 10}}/>}Localização</Button>
+                            <Button size="small"variant="contained" onClick={() => window.location.href = `/logica/${props.linkId}`}>{<MdRule size={20} style={{marginRight: 10}}/>}REGRAS</Button>
+                        </Stack>
+                        {renderOptionsButton(props.id, props.linkId)}
+
                     </div>
                 </div>
-                <div id="actionsGraph">
-                    <Link id="linka" to={props.url}>
-                        <img src={props.icon} alt="elemento gráfico" />{props.descriptionIcon}
-                    </Link>
-
-                    <Link id="linka" to={`/localizacao/${props.linkId}`}>
-                        <img src={localizationElement} alt="elemento localização" />
-                        Localização
-                    </Link>
-
-                   
-
-                    {renderOptionsButton(props.id, props.linkId)}
-
-                </div>
-            </div>
-            <hr />
-        </span>
+                <hr />
+            </span>
+        </ThemeProvider>
     )
 
 }

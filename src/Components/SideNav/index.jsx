@@ -88,28 +88,27 @@ function SideNav() {
                             </Link>
                         </ListItemText>
                     </MenuItem>
-                    <MenuItem sx={style.menuItem}>
+                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/admin`}>
                         <ListItemIcon>
                             <MdAdminPanelSettings color="#102C49" size={20} style={{ marginRight: 20 }} />
                         </ListItemIcon>
                         <ListItemText>
-                            <Link to="/novaPesquisa">
-                                <Link to="/admin">
-                                    Acesso Administrativo
-                                </Link>
+
+                            <Link>
+                                Acesso Administrativo
                             </Link>
                         </ListItemText>
                     </MenuItem>
-                    <MenuItem sx={style.menuItem}>
+                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp`}>
                         <ListItemIcon>
                             <FaRobot color="#102C49" size={20} style={{ marginRight: 20 }} />
                         </ListItemIcon>
                         <ListItemText>
-                            <Link to="/novaPesquisa">
-                                <Link style={{ textAlign: 'center' }} to="/whatsapp">
-                                    WhatsApp
-                                </Link>
+
+                            <Link style={{ textAlign: 'center' }}>
+                                WhatsApp
                             </Link>
+
                         </ListItemText>
                     </MenuItem>
                 </MenuList>

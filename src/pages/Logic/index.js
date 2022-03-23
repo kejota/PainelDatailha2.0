@@ -189,7 +189,7 @@ const Logic = () => {
 
     return (
         <div className="conteiner-logic">
-            <AppBar position="static">
+            <AppBar position="static" sx={{height: 70}}>
                 <Toolbar>
                     <AiFillHome onClick={() => {Home()}} size={25} style={{marginRight: 50, cursor: 'pointer'}}/>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
