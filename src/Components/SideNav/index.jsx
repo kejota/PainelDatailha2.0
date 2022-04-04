@@ -99,14 +99,26 @@ function SideNav() {
                             </Link>
                         </ListItemText>
                     </MenuItem>
-                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp`}>
+                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp/PA`}>
                         <ListItemIcon>
                             <FaRobot color="#102C49" size={20} style={{ marginRight: 20 }} />
                         </ListItemIcon>
                         <ListItemText>
 
                             <Link style={{ textAlign: 'center' }}>
-                                WhatsApp
+                                WhatsApp - PA
+                            </Link>
+
+                        </ListItemText>
+                    </MenuItem>
+                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp/MA`}>
+                        <ListItemIcon>
+                            <FaRobot color="#102C49" size={20} style={{ marginRight: 20 }} />
+                        </ListItemIcon>
+                        <ListItemText>
+
+                            <Link style={{ textAlign: 'center' }}>
+                                WhatsApp - MA
                             </Link>
 
                         </ListItemText>
