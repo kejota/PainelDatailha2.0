@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
@@ -83,6 +83,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 const SearchWhatsApp = () => {
+    const paramUrl = useParams();
     const [checked, setChecked] = React.useState(false);
     const [carregando, setCarregando] = React.useState(true);
     const [aviso, setAviso] = React.useState({
@@ -100,6 +101,21 @@ const SearchWhatsApp = () => {
             sexo: false,
             feminino: 0,
             masculino: 0
+        },
+        faixa: {
+            faixa: false,
+            ['16 a 24 anos']: 0,
+            ['25 a 34 anos']: 0,
+            ['35 a 44 anos']: 0,
+            ['45 a 59 anos']: 0,
+            ['60 anos ou mais']: 0,
+        },
+        escolaridade: {
+            escolaridade: false,
+            ['Analfabeto']: 0,
+            ['Nível Fundamental']: 0,
+            ['Nível Médio']: 0,
+            ['Nível Superior']: 0,
         },
         data: new Date(),
         inicial: {
@@ -134,11 +150,8 @@ const SearchWhatsApp = () => {
 
 
     useEffect(() => {
-        //console.log(process.env.REACT_MA_HOST)
-        //console.log(process.env.REACT_APP_HOST_LOCAL)
-        //console.log(process.env.REACT_APP_HOST_LOCAL_M)
         setCarregando(true)
-        axios.get(`${process.env.REACT_APP_HOST_LOCAL}/get-pesquisa`).then((res) => {
+        axios.get(`${paramUrl.id == 'pa' ? process.env.REACT_APP_HOST_LOCAL : process.env.REACT_APP_HOST_LOCAL_M}/get-pesquisa`).then((res) => {
             console.log(res.data)
             if (!res.data.sexo) {
                 res.data.sexo = {
@@ -147,7 +160,26 @@ const SearchWhatsApp = () => {
                     masculino: 0
                 }
             }
-            if(res.data.data){
+            if (!res.data.faixa) {
+                res.data.faixa = {
+                    faixa: false,
+                    ['16 a 24 anos']: 0,
+                    ['25 a 34 anos']: 0,
+                    ['35 a 44 anos']: 0,
+                    ['45 a 59 anos']: 0,
+                    ['60 anos ou mais']: 0,
+                }
+            }
+            if (!res.data.escolaridade) {
+                res.data.escolaridade = {
+                    escolaridade: false,
+                    ['Analfabeto']: 0,
+                    ['Nível Fundamental']: 0,
+                    ['Nível Médio']: 0,
+                    ['Nível Superior']: 0,
+                }
+            }
+            if (res.data.data) {
                 res.data.data = new Date(res.data.data)
             }
             setInicial(res.data)
@@ -159,6 +191,7 @@ const SearchWhatsApp = () => {
             setChecked(true)
             setCarregando(false)
         }).catch((err) => {
+            console.log(err)
             setAviso({
                 type: 'error',
                 msg: 'Verifique a conexão com a internet!'
@@ -188,7 +221,7 @@ const SearchWhatsApp = () => {
         }
         setCarregando(true)
         await axios
-            .post(`${process.env.REACT_APP_HOST_LOCAL}/set-pesquisa`, stateInicial).then((res) => {
+            .post(`${paramUrl.id == 'pa' ? process.env.REACT_APP_HOST_LOCAL : process.env.REACT_APP_HOST_LOCAL_M}/set-pesquisa`, stateInicial).then((res) => {
                 setCarregando(false)
                 setAviso({
                     type: 'success',
@@ -217,7 +250,7 @@ const SearchWhatsApp = () => {
         setAbrir(false);
         await Salvar()
         setCarregando(true)
-        axios.get(`${process.env.REACT_APP_HOST_LOCAL}/whatsapp-disparar`).then((res) => {
+        axios.get(`${paramUrl.id == 'pa' ? process.env.REACT_APP_HOST_LOCAL : process.env.REACT_APP_HOST_LOCAL_M}/whatsapp-disparar`).then((res) => {
             console.log(res.data)
             setAviso({
                 type: 'success',
@@ -237,14 +270,14 @@ const SearchWhatsApp = () => {
     }
 
     return (
-        <context.Provider value={{ stateInicial, setInicial, checked }}>
+        <context.Provider value={{ stateInicial, setInicial, checked, paramUrl }}>
             <AppBar position="fixed" sx={{ height: 65 }} >
                 <Toolbar>
                     <AiFillHome onClick={() => { Home() }} size={25} style={{ marginRight: 50, cursor: 'pointer' }} />
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Pesquisa por WhatsApp - PA
+                        {paramUrl.id == 'pa' ? "Pesquisa por WhatsApp - PA" : "Pesquisa por WhatsApp - MA"}
                     </Typography>
-                    <Button target="_blank" onClick={() =>  window.open('https://docs.google.com/spreadsheets/d/1Kv8jjY5pRiK7g5Qk94LFbwpjV0NJ4MxJzOK3kHJB-gg/edit#gid=145096152',  "_blank")} color="inherit">Planilha</Button>
+                    <Button target="_blank" onClick={() => paramUrl.id == 'pa' ? window.open('https://docs.google.com/spreadsheets/d/1Kv8jjY5pRiK7g5Qk94LFbwpjV0NJ4MxJzOK3kHJB-gg/edit#gid=145096152' , "_blank") : window.open('https://docs.google.com/spreadsheets/d/152BjtpGGy7jgwCSm1S1tPUrc9n2WFxRWWjylAYNPlxQ/edit?usp=sharing' , "_blank")} color="inherit">Planilha</Button>
                     <Button onClick={handleClickOpen} color="inherit">Disparar</Button>
                     <Button onClick={Salvar} color="inherit">Salvar</Button>
                 </Toolbar>

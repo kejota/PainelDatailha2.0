@@ -99,7 +99,7 @@ function SideNav() {
                             </Link>
                         </ListItemText>
                     </MenuItem>
-                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp/PA`}>
+                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp/pa`}>
                         <ListItemIcon>
                             <FaRobot color="#102C49" size={20} style={{ marginRight: 20 }} />
                         </ListItemIcon>
@@ -111,7 +111,7 @@ function SideNav() {
 
                         </ListItemText>
                     </MenuItem>
-                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp/MA`}>
+                    <MenuItem sx={style.menuItem} onClick={() => window.location.href = `/whatsapp/ma`}>
                         <ListItemIcon>
                             <FaRobot color="#102C49" size={20} style={{ marginRight: 20 }} />
                         </ListItemIcon>

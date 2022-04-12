@@ -57,10 +57,7 @@ function App() {
 
           <PrivateRoute path="/requerimento/:id" component={Report} roles={['Master']}/>
           <PrivateRoute path="/logica/:id" component={Logic} roles={['Master']}/>
-          <PrivateRoute path="/whatsapp/PA" component={SearchWhatsAppPA} roles={['Master']}/>
-          <PrivateRoute path="/whatsapp/MA" component={SearchWhatsAppMA} roles={['Master']}/>
-         
-          
+          <PrivateRoute path="/whatsapp/:id" component={SearchWhatsAppPA} roles={['Master']}/>
           <Route path="/resposta/:id" component={ResponseSearchPage}/>
         </Switch>
       </BrowserRouter>

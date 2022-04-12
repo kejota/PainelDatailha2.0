@@ -80,10 +80,36 @@ const Limites = () => {
         setInicial({ ...stateInicial, sexo: up })
     };
 
+    const faixa = (event) => {
+
+        let up = stateInicial.faixa
+        up.faixa = event.target.checked
+        setInicial({ ...stateInicial, faixa: up })
+    };
+
+    const escolaridade = (event) => {
+
+        let up = stateInicial.escolaridade
+        up.escolaridade = event.target.checked
+        setInicial({ ...stateInicial, escolaridade: up })
+    };
+
     const editarInputSexo = (value, typo) => {
         let up = stateInicial.sexo
         up[typo] = Number(value)
         setInicial({ ...stateInicial, sexo: up })
+    }
+
+    const editarInputFaixa = (value, typo) => {
+        let up = stateInicial.faixa
+        up[typo] = Number(value)
+        setInicial({ ...stateInicial, faixa: up })
+    }
+    
+    const editarInputEscolaridade = (value, typo) => {
+        let up = stateInicial.escolaridade
+        up[typo] = Number(value)
+        setInicial({ ...stateInicial, escolaridade: up })
     }
 
     return (
@@ -150,13 +176,12 @@ const Limites = () => {
                 />
             </Stack>
 
-
             <Stack spacing={2} paddingX={2}>
 
                 <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
                     <TextField
                         id="outlined-textarea"
-                        label={`DDD`}
+                        label={`Sexo`}
                         multiline
                         sx={{
                             width: '100%',
@@ -179,7 +204,7 @@ const Limites = () => {
                 <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
                     <TextField
                         id="outlined-textarea"
-                        label={`DDD`}
+                        label={`Sexo`}
                         multiline
                         sx={{
                             width: '100%',
@@ -197,6 +222,253 @@ const Limites = () => {
                         value={stateInicial.sexo.masculino}
                         onChange={(e) => editarInputSexo(e.target.value, "masculino")}
                         disabled={!stateInicial.sexo.sexo}
+                    />
+                </Stack>
+            </Stack>
+
+            <Stack alignItems={'center'} direction={'row'} padding={1} sx={{
+                width: '100%',
+            }}>
+                <Typography sx={{
+                    width: '100%',
+                    textAlign: 'center'
+                }}>
+                    Faixa etária
+                </Typography>
+                <Switch
+                    checked={stateInicial.faixa.faixa}
+                    onChange={faixa}
+                    inputProps={{ 'aria-label': 'controlled' }}
+                />
+            </Stack>
+
+            <Stack spacing={2} paddingX={2}>
+
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Faixa etária`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"16 a 24 anos"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.faixa['16 a 24 anos']}
+                        onChange={(e) => editarInputFaixa(e.target.value, '16 a 24 anos')}
+                        disabled={!stateInicial.faixa.faixa}
+                    />
+                </Stack>
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Faixa etária`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"25 a 34 anos"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.faixa['25 a 34 anos']}
+                        onChange={(e) => editarInputFaixa(e.target.value, "25 a 34 anos")}
+                        disabled={!stateInicial.faixa.faixa}
+                    />
+                </Stack>
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Faixa etária`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"35 a 44 anos"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.faixa['35 a 44 anos']}
+                        onChange={(e) => editarInputFaixa(e.target.value, "35 a 44 anos")}
+                        disabled={!stateInicial.faixa.faixa}
+                    />
+                </Stack>
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Faixa etária`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"45 a 59 anos"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.faixa['45 a 59 anos']}
+                        onChange={(e) => editarInputFaixa(e.target.value, "45 a 59 anos")}
+                        disabled={!stateInicial.faixa.faixa}
+                    />
+                </Stack>
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Faixa etária`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"60 anos ou mais"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.faixa['60 anos ou mais']}
+                        onChange={(e) => editarInputFaixa(e.target.value, "60 anos ou mais")}
+                        disabled={!stateInicial.faixa.faixa}
+                    />
+                </Stack>
+            </Stack>
+
+            <Stack alignItems={'center'} direction={'row'} padding={1} sx={{
+                width: '100%',
+            }}>
+                <Typography sx={{
+                    width: '100%',
+                    textAlign: 'center'
+                }}>
+                    Grau de escolaridade
+                </Typography>
+                <Switch
+                    checked={stateInicial.escolaridade.escolaridade}
+                    onChange={escolaridade}
+                    inputProps={{ 'aria-label': 'controlled' }}
+                />
+            </Stack>
+
+            <Stack spacing={2} paddingX={2}>
+
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Escolaridade`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"Analfabeto"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.escolaridade['Analfabeto']}
+                        onChange={(e) => editarInputEscolaridade(e.target.value, 'Analfabeto')}
+                        disabled={!stateInicial.escolaridade.escolaridade}
+                    />
+                </Stack>
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Escolaridade`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"Nível Fundamental"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.escolaridade['Nível Fundamental']}
+                        onChange={(e) => editarInputEscolaridade(e.target.value, "Nível Fundamental")}
+                        disabled={!stateInicial.escolaridade.escolaridade}
+                    />
+                </Stack>
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Escolaridade`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"Nível Médio"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.escolaridade['Nível Médio']}
+                        onChange={(e) => editarInputEscolaridade(e.target.value, "Nível Médio")}
+                        disabled={!stateInicial.escolaridade.escolaridade}
+                    />
+                </Stack>
+                <Stack alignItems={'center'} direction={'row'} spacing={2} sx={{}} >
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Escolaridade`}
+                        multiline
+                        sx={{
+                            width: '100%',
+                        }}
+                        value={"Nível Superior"}
+                        disabled
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        label={`Limite`}
+                        multiline
+                        sx={{
+                            width: '100%'
+                        }}
+                        value={stateInicial.escolaridade['Nível Superior']}
+                        onChange={(e) => editarInputEscolaridade(e.target.value, "Nível Superior")}
+                        disabled={!stateInicial.escolaridade.escolaridade}
                     />
                 </Stack>
             </Stack>

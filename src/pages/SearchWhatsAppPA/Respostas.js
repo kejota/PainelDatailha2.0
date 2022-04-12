@@ -31,9 +31,10 @@ const Respostas = () => {
 
     const [ stateInicial, setInicial ] = useState([])
     const [carregando, setCarregando] = React.useState(true);
+    const { paramUrl } = useContext(context)
     useEffect(() => {
         setCarregando(true)
-        axios.get(`${process.env.REACT_APP_HOST_LOCAL}/whatsapp-repostas`).then((res) => {
+        axios.get(`${ paramUrl.id == 'pa' ? process.env.REACT_APP_HOST_LOCAL : process.env.REACT_APP_HOST_LOCAL_M}/whatsapp-repostas`).then((res) => {
             
             setInicial(res.data)
             setCarregando(false)
