@@ -17,7 +17,6 @@ import Report from "./pages/Report"
 import ResponseSearchPage from "./pages/ResponseSearchPage";
 import Logic from "./pages/Logic";
 import SearchWhatsAppPA from "./pages/SearchWhatsAppPA";
-import SearchWhatsAppMA from "./pages/SearchWhatsAppMA";
 
 
 const PrivateRoute = ({roles, component: Component, ...rest}) =>{

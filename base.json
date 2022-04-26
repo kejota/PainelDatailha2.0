@@ -1,0 +1,97 @@
+{
+    "limites": [
+        {
+            "ddd": "94",
+            "limite": 3
+        },
+        {
+            "ddd": "93",
+            "limite": 1
+        }
+    ],
+    "inicial": {
+        "title": "Saudação",
+        "content": "",
+        "buttons": [
+            {
+                "content": "Oie, \nO Instituto Data Ilha quer saber a sua opinião,  sobre o processo eleitoral de 2022, é fácil e rápido para responder algumas perguntas. $dia"
+            },
+            {
+                "content": "Tudo joia!\nVocê gostaria de responder uma pesquisa eleitoral sobre as eleições de 2022, pois o Instituto Data Ilha quer saber a sua opinião, é rápido e fácil responder. $dia"
+            }
+        ]
+    },
+    "questions": [
+        {
+            "title": "Botões",
+            "type": "button",
+            "content": "Quanto é 30 x 5?",
+            "buttons": [
+                {
+                    "content": "120"
+                },
+                {
+                    "content": "150"
+                },
+                {
+                    "content": "175"
+                }
+            ]
+        },
+        {
+            "title": "Lista",
+            "type": "list",
+            "content": "Você gosta mais de:",
+            "itens": [
+                {
+                    "content": "Comer"
+                },
+                {
+                    "content": "Dormir"
+                },
+                {
+                    "content": "Assistir"
+                },
+                {
+                    "content": "Jogar"
+                },
+                {
+                    "content": "Trabalhar"
+                }
+            ]
+        }
+    ],
+    "final": {
+        "title": "Despedida",
+        "content": "",
+        "buttons": [
+            {
+                "content": "Tchauuu, Obrigada!"
+            },
+            {
+                "content": "Obrigada por responder!"
+            }
+        ]
+    },
+    "sexo": {
+        "sexo": false,
+        "feminino": 2,
+        "masculino": 2
+    },
+    "data": "2022-04-26T03:00:00.000Z",
+    "faixa": {
+        "faixa": false,
+        "16 a 24 anos": 1,
+        "25 a 34 anos": 0,
+        "35 a 44 anos": 0,
+        "45 a 59 anos": 0,
+        "60 anos ou mais": 0
+    },
+    "escolaridade": {
+        "escolaridade": false,
+        "Analfabeto": 2,
+        "Nível Fundamental": 0,
+        "Nível Médio": 0,
+        "Nível Superior": 0
+    }
+}

@@ -201,10 +201,35 @@ const SearchWhatsApp = () => {
 
     }, [])
 
+    useEffect(() => {
+        console.log(stateInicial.questions)
+    }, [stateInicial])
+
     const newCard = (type) => {
-        var copia = Object.assign({}, stateInicial);
-        copia.questions.push(type == "button" ? stateGlobal.card.button : stateGlobal.card.list)
-        setInicial(copia)
+        /*  var copia = Object.assign({}, stateInicial);
+         copia.questions.push(type == "button" ? stateGlobal.card.button : stateGlobal.card.list) */
+        setInicial(data => ({
+            ...data, questions: [...data.questions, type == "button" ? {
+                title: "Botões",
+                type: "button",
+                content: "",
+                buttons: [
+                    {
+                        content: "",
+                    }
+                ]
+            } : {
+                title: "Lista",
+                type: "list",
+                content: "",
+                itens: [
+                    {
+                        content: "",
+                    }
+                ]
+            }]
+        }))
+
     }
 
     const Salvar = async () => {
@@ -277,7 +302,7 @@ const SearchWhatsApp = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         {paramUrl.id == 'pa' ? "Pesquisa por WhatsApp - PA" : "Pesquisa por WhatsApp - MA"}
                     </Typography>
-                    <Button target="_blank" onClick={() => paramUrl.id == 'pa' ? window.open('https://docs.google.com/spreadsheets/d/1Kv8jjY5pRiK7g5Qk94LFbwpjV0NJ4MxJzOK3kHJB-gg/edit#gid=145096152' , "_blank") : window.open('https://docs.google.com/spreadsheets/d/152BjtpGGy7jgwCSm1S1tPUrc9n2WFxRWWjylAYNPlxQ/edit?usp=sharing' , "_blank")} color="inherit">Planilha</Button>
+                    <Button target="_blank" onClick={() => paramUrl.id == 'pa' ? window.open('https://docs.google.com/spreadsheets/d/1Kv8jjY5pRiK7g5Qk94LFbwpjV0NJ4MxJzOK3kHJB-gg/edit#gid=145096152', "_blank") : window.open('https://docs.google.com/spreadsheets/d/152BjtpGGy7jgwCSm1S1tPUrc9n2WFxRWWjylAYNPlxQ/edit?usp=sharing', "_blank")} color="inherit">Planilha</Button>
                     <Button onClick={handleClickOpen} color="inherit">Disparar</Button>
                     <Button onClick={Salvar} color="inherit">Salvar</Button>
                 </Toolbar>
@@ -301,10 +326,10 @@ const SearchWhatsApp = () => {
 
                         <Stack sx={{ transition: '0.5s' }} paddingTop={5} paddingBottom={5} spacing={2} alignItems={'center'} >
                             <CardInicial />
-                            {stateInicial.questions.map((query, key) => (
+                            {stateInicial.questions.map((query, i) => (
                                 query.type == "button"
-                                    ? <CardButton key={key} query={query} index={key} />
-                                    : <CardList key={key} query={query} index={key} />
+                                    ? <CardButton setInicial={setInicial} stateInicial={stateInicial} key={`CardButton${i}`} query={{ ...query, id: i }} />
+                                    : <CardList key={`CardList${i}`} query={{ ...query, id: i }} />
                             ))}
                             <CardFinal />
                         </Stack>
@@ -345,9 +370,10 @@ const SearchWhatsApp = () => {
 }
 
 
-const CardButton = ({ query, index }) => {
-    console.log("RENDER CARD", index)
-    const { stateInicial, setInicial, checked } = useContext(context)
+const CardButton = ({ query, stateInicial, setInicial }) => {
+    console.log("RENDER CARD aaaa", query.id)
+    var index = query.id
+    //const { stateInicial, setInicial, checked } = useContext(context)
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -374,21 +400,26 @@ const CardButton = ({ query, index }) => {
     }
 
     const editarInputResposta = (value, id) => {
-        var copia = Object.assign({}, stateInicial);
+        console.log("RENDER CARD", index)
+        var copia = { ...stateInicial }
         copia.questions[index].buttons[id].content = value
-        console.log(value)
+        console.log(value, index, id)
         setInicial(copia)
     }
 
     const newOpcion = () => {
-        var copia = Object.assign({}, stateInicial);
 
-        if (copia.questions[index].buttons.length >= 3) return;
-
-        copia.questions[index].buttons.push({
-            content: ""
+        if (stateInicial.questions[index].buttons.length >= 3) return
+        setInicial(data => {
+            var q = [...data.questions]
+            q[index].buttons.push({
+                content: ""
+            })
+            return {
+                ...data,
+                questions: [...q]
+            }
         })
-        setInicial(copia)
     }
 
     const removerOpcion = (id) => {
@@ -399,93 +430,89 @@ const CardButton = ({ query, index }) => {
     }
 
     return (
-        <Grow in={checked}>
-            <div>
-                <Card /*  className="conteiners" */ key={`${index}carbt`} sx={{
-                    minWidth: '40vw'
-                }}>
+        <Card key={`CardButtoaan${index}`} /*  className="conteiners" */ sx={{
+            minWidth: '40vw',
 
-                    <CardContent>
-                        <Stack direction={'row'} justifyContent={'space-between'}>
-                            <Typography gutterBottom variant="h6" component="div">
-                                {query.title}
-                            </Typography>
-                            <IconButton
-                                aria-label="more"
-                                id="long-button"
-                                aria-controls={open ? 'long-menu' : undefined}
-                                aria-expanded={open ? 'true' : undefined}
-                                aria-haspopup="true"
-                                onClick={handleClick}>
-                                <IoMdMore />
+        }}>
+
+            <CardContent>
+                <Stack direction={'row'} justifyContent={'space-between'}>
+                    <Typography gutterBottom variant="h6" component="div">
+                        {query.title}
+                    </Typography>
+                    <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? 'long-menu' : undefined}
+                        aria-expanded={open ? 'true' : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}>
+                        <IoMdMore />
+                    </IconButton>
+                </Stack>
+
+                <TextField
+                    id="standard-textarea"
+                    label="Pergunta"
+                    placeholder="Placeholder"
+                    multiline
+                    variant="standard"
+                    value={query.content}
+                    sx={{
+                        width: '100%'
+                    }}
+                    onChange={(e) => editarInputPergunta(e.target.value)}
+                />
+
+                <Menu
+                    id="long-menu"
+                    MenuListProps={{
+                        'aria-labelledby': 'long-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                >
+
+                    <MenuItem key={"ex"} onClick={() => removerCard()}>
+                        Excluir
+                    </MenuItem>
+
+                </Menu>
+            </CardContent >
+
+            <Stack spacing={2} padding={2}>
+
+                {query.buttons.map((button, key) => (
+
+                    <ul key={`${index}Carsson${key} `}>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }} >
+                            <TextField
+                                label={`Opção ${key + 1}`}
+                                placeholder="Placeholder"
+                                multiline
+                                sx={{
+                                    width: '100%'
+                                }}
+                                value={button.content}
+                                onChange={(e) => editarInputResposta(e.target.value, key)}
+                            />
+                            <IconButton onClick={() => removerOpcion(key)}>
+                                <IoMdClose size={20} color={'#888888'} />
                             </IconButton>
-                        </Stack>
 
-                        <TextField
-                            id="standard-textarea"
-                            label="Pergunta"
-                            placeholder="Placeholder"
-                            multiline
-                            variant="standard"
-                            value={query.content}
-                            sx={{
-                                width: '100%'
-                            }}
-                            onChange={(e) => editarInputPergunta(e.target.value)}
-                        />
+                        </Box>
+                    </ul>
+                ))}
 
-                        <Menu
-                            id="long-menu"
-                            MenuListProps={{
-                                'aria-labelledby': 'long-button',
-                            }}
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                        >
-
-                            <MenuItem key={"ex"} onClick={() => removerCard()}>
-                                Excluir
-                            </MenuItem>
-
-                        </Menu>
-                    </CardContent >
-
-                    <Stack sx={{ transition: 'heigth 2s' }} spacing={2} padding={2}>
-
-                        {query.buttons.map((button, key) => (
-                            <Grow key={key} in={checked}>
-                                <Box key={key} sx={{ display: 'flex', alignItems: 'center' }} >
-                                    <TextField
-                                        key={key}
-                                        id="outlined-textarea"
-                                        label={`Opção ${key + 1}`}
-                                        placeholder="Placeholder"
-                                        multiline
-                                        sx={{
-                                            width: '100%'
-                                        }}
-                                        value={button.content}
-                                        onChange={(e) => editarInputResposta(e.target.value, key)}
-                                    />
-                                    <IconButton onClick={() => removerOpcion(key)}>
-                                        <IoMdClose size={20} color={'#888888'} />
-                                    </IconButton>
-
-                                </Box>
-                            </Grow>
-                        ))}
-
-                        <Button variant="text" onClick={newOpcion}>Mais opção</Button>
-                    </Stack>
-                </Card>
-            </div>
-        </Grow>
+                <Button variant="text" onClick={newOpcion}>Mais opção</Button>
+            </Stack>
+        </Card>
     )
 }
 
-const CardList = ({ query, index }) => {
-
+const CardList = ({ query }) => {
+    var index = query.id
     const { stateInicial, setInicial } = useContext(context)
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -508,7 +535,7 @@ const CardList = ({ query, index }) => {
     const editarInputPergunta = (value) => {
         var copia = Object.assign({}, stateInicial);
         copia.questions[index].content = value
-        console.log(value)
+        console.log(value, index)
         setInicial(copia)
     }
 
@@ -520,14 +547,15 @@ const CardList = ({ query, index }) => {
     }
 
     const newOpcion = () => {
-        var copia = Object.assign({}, stateInicial);
-
-        // if (copia.questions[index].itens.length >= 10) return;
-
-        copia.questions[index].itens.push({
-            content: ""
+        setInicial(data => {
+            var q = [...data.questions]
+            q[index].itens.push({
+                content: ""
+            })
+            return {
+                ...data, questions: [...q]
+            }
         })
-        setInicial(copia)
     }
 
     const removerOpcion = (id) => {
@@ -540,7 +568,7 @@ const CardList = ({ query, index }) => {
 
 
     return (
-        <Grow in={true}>
+        <Grow in={true} >
             <Card sx={{ minWidth: '40vw' }}>
 
                 <CardContent>
@@ -565,7 +593,10 @@ const CardList = ({ query, index }) => {
                         placeholder="Placeholder"
                         multiline
                         variant="standard"
-                        value={query.content}
+
+                        // var copia = Object.assign({}, stateInicial);
+                        //copia.questions[index].itens[id].content = value
+                        value={stateInicial.questions[index].content}
                         sx={{
                             width: '100%'
                         }}
@@ -582,7 +613,7 @@ const CardList = ({ query, index }) => {
                         onClose={handleClose}
                     >
 
-                        <MenuItem key={"ex"} onClick={() => removerCard()}>
+                        <MenuItem onClick={() => removerCard()}>
                             Excluir
                         </MenuItem>
 
@@ -602,9 +633,8 @@ const CardList = ({ query, index }) => {
                             <Stack spacing={2} padding={2}>
 
                                 {query.itens.map((item, key) => (
-                                    <Box key={key} sx={{ display: 'flex', alignItems: 'center' }} >
+                                    <Box key={`List${key}Option${index}`} sx={{ display: 'flex', alignItems: 'center' }} >
                                         <TextField
-                                            key={key}
                                             id="outlined-textarea"
                                             label={`Opção ${key + 1}`}
                                             placeholder="Placeholder"
@@ -612,7 +642,7 @@ const CardList = ({ query, index }) => {
                                             sx={{
                                                 width: '100%'
                                             }}
-                                            value={item.content}
+                                            value={stateInicial.questions[index].itens[key].content}
                                             onChange={(e) => editarInputResposta(e.target.value, key)}
                                         />
                                         <IconButton onClick={() => removerOpcion(key)}>
